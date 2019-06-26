@@ -1,0 +1,15 @@
+{
+  "name": "actions-settings",
+  "private": true,
+  "dependencies": {
+    "probot-settings": "probot/settings"
+  },
+  "scripts": {
+    "start": "probot run"
+ },
+ "probot": {
+   "apps": [
+     "probot-settings"
+   ]
+ }
+}
