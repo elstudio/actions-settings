@@ -18,4 +18,4 @@ RUN npm install --production
 # ENTRYPOINT ["probot", "receive"]
 # CMD ["/app/index.js"]
 
-ENTRYPOINT /app/entrypoint.sh
+ENTRYPOINT ["/app/entrypoint.sh"]

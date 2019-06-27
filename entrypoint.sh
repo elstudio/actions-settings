@@ -22,4 +22,4 @@ echo ls /app/node_modules/.bin
 ls /app/node_modules/.bin
 
 echo "Running probot/settings"
-probot receive /app/index.js
+sh -c "probot receive /app/index.js"
