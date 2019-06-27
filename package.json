@@ -2,10 +2,12 @@
   "name": "actions-settings",
   "private": true,
   "dependencies": {
-    "probot-settings": "probot/settings"
-  },
+    "probot-settings": "^1.0.0"
+  }, 
+  "repository": "https://github.com/elstudio/actions-settings.git",
+  "main": "index.js",
   "scripts": {
-    "start": "probot run"
+    "start": "probot run ./index.js"
  },
  "probot": {
    "apps": [
