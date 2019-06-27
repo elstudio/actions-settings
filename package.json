@@ -6,10 +6,5 @@
   "license": "MIT",
   "dependencies": {
     "probot-settings": "probot/settings"
-  },
-  "probot": {
-  	"apps": {
-  		"probot-settings"
-  	}
   }
 }
