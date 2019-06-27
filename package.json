@@ -5,6 +5,11 @@
   "author": "Eric Johnson",
   "license": "MIT",
   "dependencies": {
-    "probot-settings": "^1.0.0"
+    "probot-settings": "probot/settings"
+  },
+  "probot": {
+  	"apps": {
+  		"probot-settings"
+  	}
   }
 }

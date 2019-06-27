@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:10-alpine
 
 LABEL version="1.0.0"
 LABEL repository="https://github.com/elstudio/actions-settings"
@@ -13,6 +13,7 @@ LABEL com.github.actions.color="purple"
 ENV PATH=$PATH:/app/node_modules/.bin
 WORKDIR /app
 COPY . .
+RUN apk add git
 RUN npm install --production
 
 # ENTRYPOINT ["probot", "receive"]
