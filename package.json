@@ -1,17 +1,10 @@
 {
   "name": "actions-settings",
   "private": true,
+  "repository": "https://github.com/elstudio/actions-settings.git",
+  "author": "Eric Johnson",
+  "license": "MIT",
   "dependencies": {
     "probot-settings": "^1.0.0"
-  }, 
-  "repository": "https://github.com/elstudio/actions-settings.git",
-  "main": "index.js",
-  "scripts": {
-    "start": "probot run ./index.js"
- },
- "probot": {
-   "apps": [
-     "probot-settings"
-   ]
- }
+  }
 }
