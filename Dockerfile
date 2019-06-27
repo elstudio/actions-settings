@@ -5,5 +5,5 @@ WORKDIR /app
 COPY . .
 RUN npm install --production
 
-ENTRYPOINT ["probot", "receive"]
+ENTRYPOINT ["probot", "run"]
 CMD ["/app/index.js"]
