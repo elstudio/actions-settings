@@ -13,6 +13,8 @@ LABEL com.github.actions.color="purple"
 ENV PATH=$PATH:/app/node_modules/.bin
 WORKDIR /app
 COPY . .
+# Alpine doesn't include git by default, so let's install it
+# (Since probot/settings isn't in NPM we'll need git)
 RUN apk add git
 RUN npm install --production
 
