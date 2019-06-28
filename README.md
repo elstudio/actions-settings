@@ -6,10 +6,10 @@ GitHub Actions to run Probot settings and set defaults
 ```
 workflow "Set repository settings" {
   on = "push"
-  resolves = "Settings"
+  resolves = "probot-settings"
 }
 
-action "Settings" {
+action "probot-settings" {
   uses = "elstudio/actions-settings@master"
   secrets = ["GITHUB_TOKEN"]
 }
