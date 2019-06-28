@@ -13,13 +13,9 @@ LABEL com.github.actions.color="purple"
 ENV PATH=$PATH:/app/node_modules/.bin
 WORKDIR /app
 COPY . .
-# Alpine doesn't include git by default, so let's install it
-# (Since probot/settings isn't in NPM we'll need git)
+# Since probot/settings isn't in NPM we'll need to install git
 RUN apk add git
 RUN npm install --production
-RUN ls /app/node_modules/probot-settings
 
 ENTRYPOINT ["probot", "receive"]
-CMD ["/app/node_modules/probot-settings/index.js"]
-
-# ENTRYPOINT /app/entrypoint.sh
+CMD ["-e $GITHUB_EVENT_NAME", "-p $GITHUB_EVENT_PATH", "/app/node_modules/probot-settings/index.js"]
