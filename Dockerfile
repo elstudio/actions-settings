@@ -17,8 +17,9 @@ COPY . .
 # (Since probot/settings isn't in NPM we'll need git)
 RUN apk add git
 RUN npm install --production
+RUN ls node_modules
 
-# ENTRYPOINT ["probot", "receive"]
-# CMD ["/app/index.js"]
+ENTRYPOINT ["probot", "receive"]
+CMD ["/app/index.js"]
 
-ENTRYPOINT ["/app/entrypoint.sh"]
+# ENTRYPOINT ["/app/entrypoint.sh"]
