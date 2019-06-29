@@ -18,4 +18,4 @@ RUN apk add git
 RUN npm install --production
 
 ENTRYPOINT ["probot", "receive"]
-CMD ["-e", "$GITHUB_EVENT_NAME", "-p", "$GITHUB_EVENT_PATH", "/app/node_modules/probot-settings/index.js"]
+CMD ["-e", "$GITHUB_EVENT_NAME", "-p", "/github/workflow/event.json", "/app/node_modules/probot-settings/index.js"]
