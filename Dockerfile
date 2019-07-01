@@ -13,11 +13,9 @@ LABEL com.github.actions.color="purple"
 ENV PATH=$PATH:/app/node_modules/.bin
 WORKDIR /app
 COPY . .
+
 # Since probot/settings isn't in NPM we'll need to install git
 RUN apk add git
 RUN npm install --production
-
-# ENTRYPOINT ["probot", "receive"]
-# CMD ["-e", "push", "-p", "/github/workflow/event.json", "/app/node_modules/probot-settings/index.js"]
 
 ENTRYPOINT ["/app/entrypoint.sh"]
