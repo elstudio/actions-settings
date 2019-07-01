@@ -1,7 +1,6 @@
 #!/bin/sh
 
 set -e
-export DEBUG=true
 
 if [ -n "$DEBUG" ]
 then
