@@ -17,5 +17,7 @@ COPY . .
 RUN apk add git
 RUN npm install --production
 
-ENTRYPOINT ["probot", "receive"]
-CMD ["-e", "push", "-p", "/github/workflow/event.json", "/app/node_modules/probot-settings/index.js"]
+# ENTRYPOINT ["probot", "receive"]
+# CMD ["-e", "push", "-p", "/github/workflow/event.json", "/app/node_modules/probot-settings/index.js"]
+
+ENTRYPOINT ["/app/entrypoint.sh"]
