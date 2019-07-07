@@ -30,7 +30,7 @@ EOF
   git config user.name "$GITHUB_ACTOR"
   
   # Push to the current branch if PUSH_BRANCH hasn't been overriden
-  : ${PUSH_BRANCH:=`echo "$GITHUB_REF" | awk -F / '{ print $3 }' `}
+#  : ${PUSH_BRANCH:=`echo "$GITHUB_REF" | awk -F / '{ print $3 }' `}
 }
 
 
@@ -40,4 +40,4 @@ cd $GITHUB_WORKSPACE
 rm .github/main.workflow
 git add .github/main.workflow
 git commit -m "Remove workflow file so it runs only once."
-git push --set-upstream origin $PUSH_BRANCH
+git push --set-upstream origin master
