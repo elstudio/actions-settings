@@ -30,21 +30,25 @@ EOF
   git config user.name "$GITHUB_ACTOR"
   
   # Push to the current branch if PUSH_BRANCH hasn't been overriden
-#  : ${PUSH_BRANCH:=`echo "$GITHUB_REF" | awk -F / '{ print $3 }' `}
+  : ${PUSH_BRANCH:=`echo "$GITHUB_REF" | awk -F / '{ print $3 }' `}
 }
 
 
 # Try to remove the workflow file so we execute only when the repository is created
 # Ignore repositories with "-template" in their name
+# Also ignore branches other than master
 case "$GITHUB_REPOSITORY" in 
 *-template* ) 
   echo "Not removing workflow from template repository.";;
 * )
-  echo "Removing main.workflow so settings will run just once."
   git_setup
-  cd $GITHUB_WORKSPACE
-  rm .github/main.workflow
-  git add .github/main.workflow
-  git commit -m "Remove workflow file so it runs only once."
-  git push --set-upstream origin master ;;
+  if [ $PUSH_BRANCH = 'master' ]
+  then
+    echo "Removing main.workflow so settings will run just once."
+    cd $GITHUB_WORKSPACE
+    rm .github/main.workflow
+    git add .github/main.workflow
+    git commit -m "Remove workflow file so it runs only once."
+    git push --set-upstream origin $PUSH_BRANCH
+  fi
 esac
