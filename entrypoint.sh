@@ -35,9 +35,16 @@ EOF
 
 
 # Try to remove the workflow file so we execute only when the repository is created
-git_setup
-cd $GITHUB_WORKSPACE
-rm .github/main.workflow
-git add .github/main.workflow
-git commit -m "Remove workflow file so it runs only once."
-git push --set-upstream origin master
+# Ignore repositories with "-template" in their name
+case "$GITHUB_REPOSITORY" in 
+*-template* ) 
+  echo "Not removing workflow from template repository.";;
+* )
+  echo "Removing main.workflow so settings will run just once."
+  git_setup
+  cd $GITHUB_WORKSPACE
+  rm .github/main.workflow
+  git add .github/main.workflow
+  git commit -m "Remove workflow file so it runs only once."
+  git push --set-upstream origin master ;;
+esac
