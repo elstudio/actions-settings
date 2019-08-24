@@ -14,6 +14,8 @@ ENV PATH=$PATH:/app/node_modules/.bin
 WORKDIR /app
 COPY . .
 
+# Since probot/settings isn't in NPM we'll need to install git
+RUN apk --update --no-cache add git
 RUN npm install --production
 
 ENTRYPOINT ["/app/entrypoint.sh"]
