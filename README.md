@@ -6,14 +6,22 @@ This action simply runs probot-settings, which can be used to set up labels, bra
 
 ## Example Use
 
-```
-workflow "Repository settings" {
-  on = "push"
-  resolves = "probot-settings"
-}
+Example `probot-settings.yml` file:
 
-action "probot-settings" {
-  uses = "elstudio/actions-settings@master"
-  secrets = ["GITHUB_TOKEN"]
-}
+```
+name: Enforce repository settings
+
+on: [push]
+
+jobs:
+  probot-settings:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run probot-settings
+      uses: elstudio/actions-settings@v2-beta
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
