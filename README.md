@@ -21,7 +21,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run probot-settings
-      uses: elstudio/actions-settings@v2-beta
+      uses: elstudio/actions-settings@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
