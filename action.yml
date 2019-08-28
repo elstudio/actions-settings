@@ -1,5 +1,5 @@
-name: 'Runs Probot Settings app'
-description: 'Runs probot-settings to set up repository defaults.'
+name: 'GitHub Action to run Probot Settings'
+description: 'Runs probot-settings to set and enforce repository defaults.'
 author: 'elstudio'
 branding:
   icon: 'settings'
