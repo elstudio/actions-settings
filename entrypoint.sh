@@ -1,9 +1,10 @@
 #!/bin/sh
 
-set -e
-
-if [ -n "$DEBUG" ]
+if [ "$DEBUG" == "false" ]
 then
+  # Carry on, but do quit on errors
+  set -e
+else
   # Verbose debugging
   set -exuo pipefail
   export LOG_LEVEL=debug
