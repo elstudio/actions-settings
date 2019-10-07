@@ -5,6 +5,6 @@
   "author": "Eric Johnson",
   "license": "MIT",
   "dependencies": {
-    "probot-settings": "probot/settings"
+    "probot-settings": "github:elstudio/settings#octokit-updates"
   }
 }
