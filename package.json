@@ -5,6 +5,6 @@
   "author": "Eric Johnson",
   "license": "MIT",
   "dependencies": {
-    "probot-settings": "github:department-of-veterans-affairs/settings#octokit-updates"
+    "probot-settings": "github:elstudio/settings#octokit-updates"
   }
 }
