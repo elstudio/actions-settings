@@ -12,6 +12,7 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  entrypoint: '/app/entrypoint.sh'
   env:
     DEBUG: ${{ inputs.debug }}
  
