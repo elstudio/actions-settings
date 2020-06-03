@@ -8,7 +8,7 @@ This action simply runs probot-settings, which can be used to set up labels, bra
 
 Example `probot-settings.yml` file:
 
-```
+```yaml
 name: Enforce repository settings
 
 on: [push]
@@ -19,9 +19,44 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Run probot-settings
-      uses: elstudio/actions-settings@v2-beta
+      uses: elstudio/actions-settings@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+### A fancer example
+
+Let's say you run `probot-settings` just one time. (Which is useful if you're setting up labels when a repository is first created.)
+
+Fancier example `probot-settings.yml` file:
+
+```yaml
+name: Enforce repository settings just once
+
+on: [push]
+
+jobs:
+  probot-settings:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run probot-settings
+      uses: elstudio/actions-settings@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+    - name: Remove workflow file from master branch
+      run: rm ./.github/workflows/probot-settings.yml
+      if: endsWith(github.ref, '/master') && ! endsWith(github.repository, '-template')
+
+    - name: Commit changes
+      uses: elstudio/actions-js-build/commit@v3
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
