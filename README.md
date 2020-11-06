@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Run probot-settings
       uses: elstudio/actions-settings@v2
       env:
@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Run probot-settings
       uses: elstudio/actions-settings@v2
       env:
@@ -55,7 +55,7 @@ jobs:
       if: endsWith(github.ref, '/master') && ! endsWith(github.repository, '-template')
 
     - name: Commit changes
-      uses: elstudio/actions-js-build/commit@v2
+      uses: elstudio/actions-js-build/commit@v3
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
