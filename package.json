@@ -1,10 +1,46 @@
 {
-  "name": "actions-settings",
-  "private": true,
-  "repository": "https://github.com/elstudio/actions-settings.git",
+  "name": "action-settings",
+  "version": "3.0.0",
+  "description": "GitHub Action to run Probot-Settings",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "prepare": "ncc build index.js -o dist --source-map --license licenses.txt",
+    "test": "jest",
+    "all": "npm run lint && npm run prepare && npm run test",
+    "start": "probot receive -L debug -e push -p fixtures/push.settings.json node_modules/probot-settings/index.js",
+    "run": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elstudio/action-settings.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "JavaScript",
+    "Probot",
+    "Settings"
+  ],
   "author": "Eric Johnson",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elstudio/action-settings/issues"
+  },
+  "homepage": "https://github.com/elstudio/action-settings/#readme",
   "dependencies": {
-    "probot-settings": "github:probot/settings"
+    "@actions/core": "^1.2.5",
+    "@probot/adapter-github-actions": "^3.0.0",
+    "probot-settings": "git+https://github.com/probot/settings.git"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.27.0",
+    "eslint": "^7.19.0",
+    "jest": "^26.6.3"
+  },
+  "probot": {
+    "apps": [
+      "probot-settings"
+    ]
   }
 }
