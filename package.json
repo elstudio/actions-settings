@@ -31,7 +31,7 @@
   "dependencies": {
     "@actions/core": "^1.2.5",
     "@probot/adapter-github-actions": "^3.0.0",
-    "probot-settings": "git+https://github.com/probot/settings.git"
+    "probot-settings": "git+https://github.com/elstudio/probot-settings.git#run-from-actions"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.27.0",
