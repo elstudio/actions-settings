@@ -33,9 +33,9 @@ jobs:
 
 Actions-settings runs the probot/settings app, and it requires permissions sufficient to do whatever you specify in `settings.yml`. Updating labels, for example, can be done with the default permissions that `secrets.GITHUB_TOKEN` provides.
 
-Chaning other settings require more powers, though. Branch protections, for example, require admin-level permissions.
+Changing other settings require more powers, though. Branch protections, for example, require admin-level permissions.
 
-While you could use a PAT with elevated permissions for this, it's generally better to use a GitHub App to generate a temporary token with just the necessary permissions. See [peter-murray/workflow-application-token-action](https://github.com/peter-murray/workflow-application-token-action) for an action that makes this easy.
+While you could use a PAT with elevated permissions for this, it's generally better to use a GitHub App to generate a temporary token with just the permissions you need. And yes, there's an action for this! See [peter-murray/workflow-application-token-action](https://github.com/peter-murray/workflow-application-token-action) for an action that makes this easy.
 
 Here's an example of a workflow that uses an application token to authenticate:
 
