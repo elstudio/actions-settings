@@ -1,18 +1,5 @@
-name: 'GitHub Action to run Probot Settings'
-description: 'Runs probot-settings to set and enforce repository defaults.'
-author: 'elstudio'
-branding:
-  icon: 'settings'
-  color: 'purple'
-inputs: 
-  debug:
-    description: 'Print script debugging info'
-    required: false
-    default: 'false'
+name: 'settings-action'
+description: 'Runs Probot-Settings to update repository configuration from settings.yml'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  entrypoint: '/app/entrypoint.sh'
-  env:
-    DEBUG: ${{ inputs.debug }}
- 
+  using: 'node12'
+  main: 'dist/index.js'
