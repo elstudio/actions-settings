@@ -1,3 +1,8 @@
+> **Archived because there are now much better ways to set and enforce repository configuration:**
+> 1. [GitHub Safe-Settings](https://github.com/github/safe-settings) - Recommended for configuring repository settings organization-wide
+> 2. [GitHub Repository Rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets) - Native solution for branch protections, either organization-wide or on particular repositories.
+
+
 # actions-settings
 GitHub Action to run [Probot settings](https://github.com/probot/settings) to set repository defaults.
 
